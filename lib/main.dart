@@ -14,6 +14,10 @@ void main() {
       useMaterial3: true,
     ),
     home: const HomePage(),
+    routes: {
+      '/login/': (context) => const LoginView(),
+      '/register/': (context) => const RegisterView(),
+    },
   ));
 }
 
@@ -22,32 +26,37 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Login'),
-          backgroundColor: Colors.primaries[5],
-        ),
-        body: FutureBuilder(
-          future: Firebase.initializeApp(
-            options: DefaultFirebaseOptions.currentPlatform,
-          ),
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.done:
-                final user = FirebaseAuth.instance.currentUser;
-                if (user?.emailVerified ?? false) {
-                } else {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const VerifyEmailView(),
-                  ));
-                }
-                return const Text('done');
+    return FutureBuilder(
+      future: Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      ),
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.done:
+            // final user = FirebaseAuth.instance.currentUser;
+            // print(user);
+            // if (user == null) {
+            //   return const RegisterView();
+            // } else {
+            //   if (user.emailVerified) {
+            //     return ElevatedButton(
+            //         onPressed: () {
+            //           FirebaseAuth.instance.signOut();
+            //           Navigator.of(context)
+            //               .pushNamedAndRemoveUntil('/login/', (route) => false);
+            //         },
+            //         child: const Text('Logout'));
+            //   } else {
+            //     return const VerifyEmailView();
+            //   }
+            // }
+            return const LoginView();
 
-              default:
-                return const Text('Loading...');
-            }
-          },
-        ));
+          default:
+            return const Text('Loading...');
+        }
+      },
+    );
   }
 }
 
@@ -63,7 +72,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Verifiy email'),
+        title: const Text('Verify Email'),
         backgroundColor: Colors.primaries[5],
       ),
       body: Column(
@@ -73,6 +82,9 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
             onPressed: () async {
               final user = FirebaseAuth.instance.currentUser;
               await user?.sendEmailVerification();
+              // FirebaseAuth.instance.signOut();
+              // Navigator.of(context)
+              //     .pushNamedAndRemoveUntil('/login/', (route) => false);
             },
             child: const Text('Send verification email'),
           ),
