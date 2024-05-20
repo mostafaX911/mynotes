@@ -1,0 +1,1 @@
+ E:\\mostafa\ projects\\Flutter\\mynotes\\.dart_tool\\flutter_build\\678f6d31928bc5301bdf22915f4f34f2\\native_assets.yaml: 
