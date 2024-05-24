@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:my_notes/views/register_view.dart';
+import 'package:my_notes/constants/routes.dart';
+import 'package:my_notes/utilities/show_error_ddialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -58,16 +61,51 @@ class _LoginViewState extends State<LoginView> {
               final email = _email.text;
               final password = _password.text;
               try {
-                final userCredential = await FirebaseAuth.instance
-                    .signInWithEmailAndPassword(
-                        email: email, password: password);
-                print(userCredential);
-                print('User logged in');
-
-                // Navigator.of(context)
-                //     .pushNamedAndRemoveUntil('/', (route) => false);
+                await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  email: email,
+                  password: password,
+                );
+                final user = FirebaseAuth.instance.currentUser;
+                if (user != null && user.emailVerified) {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    notesRoute,
+                    (route) => false,
+                  );
+                } else {
+                  Navigator.of(context).pushNamed(verifyEmailRoute);
+                }
               } on FirebaseAuthException catch (e) {
-                print(e.code);
+                if (e.code == 'user-not-found') {
+                  await showErrorDialog(
+                    context,
+                    'No user found for that email.',
+                  );
+                } else if (e.code == 'wrong-password') {
+                  await showErrorDialog(
+                    context,
+                    'Wrong password provided for that user.',
+                  );
+                } else if (e.code == 'invalid-credential') {
+                  await showErrorDialog(
+                    context,
+                    'email or password is invalid. Please try again.',
+                  );
+                } else if (e.code == 'invalid-email') {
+                  await showErrorDialog(
+                    context,
+                    'invalid email. Please try a valid email.',
+                  );
+                } else {
+                  await showErrorDialog(
+                    context,
+                    'error: ${e.code}',
+                  );
+                }
+              } catch (e) {
+                await showErrorDialog(
+                  context,
+                  e.toString(),
+                );
               }
             },
             style: TextButton.styleFrom(
@@ -77,8 +115,10 @@ class _LoginViewState extends State<LoginView> {
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil('/register/', (route) => false);
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  registerRoute,
+                  (route) => false,
+                );
               },
               child: const Text('Not registered? Register here')),
         ],

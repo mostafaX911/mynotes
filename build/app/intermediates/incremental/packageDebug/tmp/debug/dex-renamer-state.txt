@@ -1,10 +1,10 @@
-#Mon May 20 13:11:06 EEST 2024
-base.0=D\:\\my projects\\flutter\\my_notes\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=D\:\\my projects\\flutter\\my_notes\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.2=D\:\\my projects\\flutter\\my_notes\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.3=D\:\\my projects\\flutter\\my_notes\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
-base.4=D\:\\my projects\\flutter\\my_notes\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.5=D\:\\my projects\\flutter\\my_notes\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+#Thu May 23 10:38:32 EEST 2024
+base.0=E\:\\mostafa projects\\Flutter\\mynotes\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=E\:\\mostafa projects\\Flutter\\mynotes\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.2=E\:\\mostafa projects\\Flutter\\mynotes\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.3=E\:\\mostafa projects\\Flutter\\mynotes\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
+base.4=E\:\\mostafa projects\\Flutter\\mynotes\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.5=E\:\\mostafa projects\\Flutter\\mynotes\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=0/classes.dex
