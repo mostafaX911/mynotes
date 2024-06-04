@@ -72,20 +72,7 @@ class _NotesViewState extends State<NotesView> {
                         if (snapshot.hasData) {
                           final allNotes = snapshot.data as List<DatabaseNote>;
 
-                          return ListView.builder(
-                              itemCount: allNotes.length,
-                              itemBuilder: (context, index) {
-                                final note = allNotes[index];
-                                return ListTile(
-                                  title: Text(
-                                    note.text,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    softWrap: true,
-                                    style: const TextStyle(fontSize: 20),
-                                  ),
-                                );
-                              });
+                          return 
                         } else {
                           return const CircularProgressIndicator();
                         }
@@ -100,30 +87,4 @@ class _NotesViewState extends State<NotesView> {
           },
         ));
   }
-}
-
-Future<bool> showLogOutDialog(BuildContext context) {
-  return showDialog<bool>(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text('Log out'),
-        content: const Text('are you sure you want to log out?'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop(false);
-            },
-            child: const Text('cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop(true);
-            },
-            child: const Text('log out'),
-          ),
-        ],
-      );
-    },
-  ).then((value) => value ?? false);
 }
