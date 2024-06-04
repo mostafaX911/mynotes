@@ -71,6 +71,8 @@ MERGED from [:cloud_firestore] D:\my projects\flutter\my_notes\build\cloud_fires
 MERGED from [:firebase_analytics] D:\my projects\flutter\my_notes\build\firebase_analytics\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-21:12
 MERGED from [:firebase_auth] D:\my projects\flutter\my_notes\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_core] D:\my projects\flutter\my_notes\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:path_provider_android] D:\my projects\flutter\my_notes\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:sqflite] D:\my projects\flutter\my_notes\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\mosta\.gradle\caches\transforms-3\22b73601ec23846af8d90aa927a7ecf6\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:17:1-75:12
 MERGED from [com.google.firebase:firebase-firestore:24.11.0] C:\Users\mosta\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-analytics:21.6.1] C:\Users\mosta\.gradle\caches\transforms-3\7bb49c11c86193867e3ee14b52a8f0d6\transformed\jetified-firebase-analytics-21.6.1\AndroidManifest.xml:2:1-9:12
@@ -166,6 +168,10 @@ MERGED from [:firebase_auth] D:\my projects\flutter\my_notes\build\firebase_auth
 MERGED from [:firebase_auth] D:\my projects\flutter\my_notes\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] D:\my projects\flutter\my_notes\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] D:\my projects\flutter\my_notes\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] D:\my projects\flutter\my_notes\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] D:\my projects\flutter\my_notes\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:sqflite] D:\my projects\flutter\my_notes\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:sqflite] D:\my projects\flutter\my_notes\build\sqflite\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\mosta\.gradle\caches\transforms-3\22b73601ec23846af8d90aa927a7ecf6\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:21:5-23:64
 MERGED from [com.google.firebase:firebase-auth:22.3.1] C:\Users\mosta\.gradle\caches\transforms-3\22b73601ec23846af8d90aa927a7ecf6\transformed\jetified-firebase-auth-22.3.1\AndroidManifest.xml:21:5-23:64
 MERGED from [com.google.firebase:firebase-firestore:24.11.0] C:\Users\mosta\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:6:5-44
