@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_notes/constants/routes.dart';
-import 'package:my_notes/services/auth/auth_exceptions.dart';
-import 'package:my_notes/services/auth/auth_service.dart';
-import 'package:my_notes/utilities/dialogs/logout_dialog.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_notes/services/auth/bloc/auth_bloc.dart';
+import 'package:my_notes/services/auth/bloc/auth_event.dart';
 
 class VerifyEmailView extends StatefulWidget {
   const VerifyEmailView({super.key});
@@ -22,27 +21,6 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
       appBar: AppBar(
         title: const Text('Verify Email'),
         backgroundColor: Colors.primaries[5],
-        actions: [
-          PopupMenuButton<MenuAction>(
-            onSelected: (value) async {
-              switch (value) {
-                case MenuAction.loggedOut:
-                  final shouldLogout = await showLogOutDialog(context);
-                  if (shouldLogout) {
-                    await AuthService.firebase().logOut();
-                    Navigator.of(context)
-                        .pushNamedAndRemoveUntil(loginRoute, (_) => false);
-                  }
-              }
-            },
-            itemBuilder: (context) => [
-              const PopupMenuItem(
-                value: MenuAction.loggedOut,
-                child: Text('Logout'),
-              ),
-            ],
-          ),
-        ],
       ),
       body: Column(
         children: [
@@ -50,24 +28,16 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
           const Text(
               'if you did not receive the email, please press the button below.'),
           ElevatedButton(
-            onPressed: () async {
-              try {
-                await AuthService.firebase().sendEmailVerification();
-              } on UserNotFoundAuthException {
-                await AuthService.firebase().logOut();
-                Navigator.of(context)
-                    .pushNamedAndRemoveUntil(loginRoute, (_) => false);
-              }
+            onPressed: () {
+              context
+                  .read<AuthBloc>()
+                  .add(const AuthEventSendEmailVerification());
             },
             child: const Text('Send verification email'),
           ),
           ElevatedButton(
             onPressed: () async {
-              await AuthService.firebase().logOut();
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                loginRoute,
-                (route) => false,
-              );
+              context.read<AuthBloc>().add(const AuthEventLogOut());
             },
             child: const Text('Restart'),
           )
