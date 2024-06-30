@@ -53,47 +53,60 @@ class _RegisterViewState extends State<RegisterView> {
           title: const Text('Register'),
           backgroundColor: Colors.primaries[5],
         ),
-        body: Column(
-          children: [
-            TextField(
-                controller: _email,
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                  'Enter your email and password to register and see your notes!'),
+              TextField(
+                  controller: _email,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                  autofocus: true,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your email here',
+                  )),
+              TextField(
+                controller: _password,
+                obscureText: true,
                 enableSuggestions: false,
                 autocorrect: false,
-                keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
-                  hintText: 'Enter your email here',
-                )),
-            TextField(
-              controller: _password,
-              obscureText: true,
-              enableSuggestions: false,
-              autocorrect: false,
-              decoration: const InputDecoration(
-                hintText: 'Enter your password here',
+                  hintText: 'Enter your password here',
+                ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                final email = _email.text;
-                final password = _password.text;
-                context.read<AuthBloc>().add(AuthEventRegister(
-                      email,
-                      password,
-                    ));
-              },
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.primaries[5],
+              Center(
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () async {
+                        final email = _email.text;
+                        final password = _password.text;
+                        context.read<AuthBloc>().add(AuthEventRegister(
+                              email,
+                              password,
+                            ));
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.primaries[5],
+                      ),
+                      child: const Text('Register'),
+                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          context.read<AuthBloc>().add(
+                                const AuthEventLogOut(),
+                              );
+                        },
+                        child: const Text('Already registered? Login here')),
+                  ],
+                ),
               ),
-              child: const Text('Register'),
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  context.read<AuthBloc>().add(
-                        const AuthEventLogOut(),
-                      );
-                },
-                child: const Text('Already registered? Login here')),
-          ],
+            ],
+          ),
         ),
       ),
     );

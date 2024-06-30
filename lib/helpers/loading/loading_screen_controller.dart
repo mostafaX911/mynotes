@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
-typedef CloseLoadingScreen = void Function();
-typedef UpdateLoadingScreen = void Function(String text);
+typedef CloseLoadingScreen = bool Function();
+typedef UpdateLoadingScreen = bool Function(String text);
 
 @immutable
 class LoadingScreenController {
